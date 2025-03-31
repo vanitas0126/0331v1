@@ -14,6 +14,7 @@
     font-style: normal;
 }
   *{
+    font-family: 'Pretendard-Regular', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -25,12 +26,12 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: skyblue;
-    overflow: hidden;
+    background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000000 100%);    overflow: hidden;
   }
 
   .section .text{
     position: relative;
+    line-height: 1.5em;
     color: #fff;
     margin: 40px;
     max-width: 800px;
@@ -45,30 +46,26 @@
   }
 
   .section .text span.active{
-    animation: smoke 2s linear forwards;
+    animation: smoke 5s linear forwards;
     transform-origin: bottom;
   }
 
-  @keyframes smoke{
-    0%{
-      opacity: 1;
-      filter: blur(0);
-      transform: translateX(0) translateY(0) rotate(0deg) scale(1);
-    }
-
-    50%{
-      opacity: 1;
-      pointer-events: none;
-
-    }
-
-    100%{
-      opacity: 0;
-      filter: blur(20px);
-      transform: translateX(300px) translateY(-300px) rotate(720deg) scale(4);
-    }
-  }
-   
+  @keyframes smoke {
+        0% {
+          opacity: 1;
+          filter: blur(0); /* blur 값 추가 */
+          transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+        }
+        50% {
+          opacity: 1;
+          pointer-events: none;
+        }
+        100% {
+          opacity: 0;
+          filter: blur(20px);
+          transform: translatex(300px) translateY(-300px) rotate(720deg) scale(4);
+        }
+      }
 
 
 
@@ -78,15 +75,19 @@
 <body>
     <div class="section">
       <p class="text">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum debitis, expedita minima optio assumenda eius alias nobis deleniti repellendus? Quae quis fuga ab natus est enim, et voluptates dolorem totam consequatur delectus nulla provident, explicabo dicta consequuntur eaque maxime amet neque alias temporibus vero dolores perferendis molestiae. Sed, quas totam?
+        마우스를 글자 위에 올려보세요.
+        디자인은 단순한 장식이 아니라 메시지를 시각적으로 전달하는 도구입니다. 이 효과는 인터랙티브 타이포그래피의 가능성을 보여주는 예시입니다.
+        디자인은 단순한 장식이 아니라 메시지를 시각적으로 전달하는 도구입니다. 이 효과는 인터랙티브 타이포그래피의 가능성을 보여주는 예시입니다.
+        디자인은 단순한 장식이 아니라 메시지를 시각적으로 전달하는 도구입니다. 이 효과는 인터랙티브 타이포그래피의 가능성을 보여주는 예시입니다.
+        디자인은 단순한 장식이 아니라 메시지를 시각적으로 전달하는 도구입니다. 이 효과는 인터랙티브 타이포그래피의 가능성을 보여주는 예시입니다.
+
       </p>
     </div>
 
 
   <script>
     const text = document.querySelector('.text');
-    text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
-
+    text.innerHTML = text.innerHTML.replace(/\S/g, "<span>$&</span>");
     const letters = document.querySelectorAll('span');
     for (let i=0; i<letters.length; i++){
       letters[i].addEventListener('mouseover', function(){
